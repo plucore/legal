@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy</title>
+<meta name="description" content="What the app collects, where it goes, how long it's kept, and your rights.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<!--
+  Numbers on this page come from the app's parameter file. Each is followed by a comment naming
+  the parameter it came from. If the parameter changes, change the number here too.
+-->
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand app" href="./"></a>
+  <nav class="site" aria-label="Pages"><ul>
+    <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="support.html">Support</a></li>
+  </ul></nav>
+</div></header>
+
+<main><div class="wrap">
+<h1>Privacy policy</h1>
+<p class="updated">Last updated: 23 October 2026</p>
+
+<p class="lede"><span class="app"></span> (“the app”) estimates a physique score and a body-fat range from two photos, then gives you a weekly plan and check-in. This page explains what it collects, where that goes, how long it’s kept and what you can do about it.</p>
+
+<div class="note">
+<p><strong>The short version</strong></p>
+<ul>
+  <li>Your photos stay on your phone. Our server never stores them.</li>
+  <li>Your face is blurred on the phone before a photo leaves it.</li>
+  <li>To score a check-in, the blurred photos go to a third-party AI model, which may keep them for up to 30<!-- AI_RETENTION_MAX_DAYS --> days, longer only if they’re flagged for a safety review.</li>
+  <li>We don’t ask for your name or email address.</li>
+  <li>You can export your data or delete your account in the app’s Settings at any time.</li>
+  <li>We don’t sell your data and we don’t use it for advertising.</li>
+</ul>
+</div>
+
+<p><strong>Not a medical device.</strong> The app gives a visual estimate from photos. It isn’t made to detect, treat or monitor any medical condition. Talk to a doctor before changing your diet or training.</p>
+
+<nav class="toc" aria-label="On this page"><ol>
+  <li><a href="#who">Who we are</a></li>
+  <li><a href="#photos">Your photos</a></li>
+  <li><a href="#server">What our server keeps</a></li>
+  <li><a href="#phone">What stays on your phone</a></li>
+  <li><a href="#analytics">Usage analytics</a></li>
+  <li><a href="#crashes">Crash reports</a></li>
+  <li><a href="#purchases">Purchases</a></li>
+  <li><a href="#health">Apple Health</a></li>
+  <li><a href="#apple">Sign in with Apple</a></li>
+  <li><a href="#bases">Why we’re allowed to use it</a></li>
+  <li><a href="#where">Where your data is processed</a></li>
+  <li><a href="#retention">How long we keep it</a></li>
+  <li><a href="#rights">Your rights</a></li>
+  <li><a href="#age">Age rules and teens</a></li>
+  <li><a href="#security">Security</a></li>
+  <li><a href="#website">This website</a></li>
+  <li><a href="#changes">Changes</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ol></nav>
+
+<h2 id="who">1. Who we are</h2>
+<p>The app is made and sold by [SELLER NAME], an individual developer based in the United Arab Emirates (“we”, “us”). We decide how your data is used, which makes us the “controller” under UK and EU data protection law.</p>
+<p>Contact: <a href="mailto:[CONTACT EMAIL]">[CONTACT EMAIL]</a></p>
+
+<h2 id="photos">2. Your photos</h2>
+<ul>
+  <li><strong>Where they live:</strong> in a private vault inside the app on your phone. The vault is left out of iCloud and computer backups<!-- VAULT_CLOUD_BACKUP = false -->, and Face ID guards it. They stay there until you delete them or your account.</li>
+  <li><strong>Before anything leaves your phone:</strong> the app finds your face on the phone (with Apple’s built-in tools) and blurs it, removes location and other hidden details from the file, and shrinks the image to 1000 × 1333 pixels<!-- UPLOAD_PX -->.</li>
+  <li><strong>When they leave:</strong> only after you’ve subscribed and agreed to send them for scoring. Nothing goes to the AI before you pay.</li>
+  <li><strong>What happens to them:</strong> our server passes the blurred photos to a third-party AI model, which reads them 3<!-- RUNS_PER_CHECKIN --> times to steady the result. Along with the photos it gets only your sex and whether you’re an adult or a teen, never your date of birth or anything that names you. The server holds the photos in memory for that one call and stores none of them<!-- SERVER_PHOTO_RETENTION_H = 0 -->. They’re never written to our logs.</li>
+  <li><strong>What the AI provider keeps:</strong> it may keep the photos for up to 30<!-- AI_RETENTION_MAX_DAYS --> days, longer only if they’re flagged for a safety review.</li>
+  <li><strong>A fingerprint, not a copy:</strong> our server keeps a one-way fingerprint (a “hash”) of each photo so the same photos always get the same answer. A photo can’t be rebuilt from it.</li>
+</ul>
+
+<h2 id="server">3. What our server keeps</h2>
+<p>Your account starts as an anonymous account with a random ID. It holds:</p>
+<div class="table-scroll"><table>
+  <thead><tr><th scope="col">What</th><th scope="col">Details</th></tr></thead>
+  <tbody>
+    <tr><td>Profile</td><td>Sex, month and year of birth (never the day), and your age group (adult or teen).</td></tr>
+    <tr><td>Quiz answers</td><td>Height, weight, goal, training experience, equipment, training days, activity level, body-fat goal and units. Kept only once you’ve subscribed and while you agree to both health-data use and AI scoring, so a new phone can get them back. Withdrawing your health-data consent deletes them from our server.</td></tr>
+    <tr><td>Results</td><td>Physique scores, body-fat ranges, muscle-group ratings, weekly verdicts and check-in dates.</td></tr>
+    <tr><td>Scoring records</td><td>For each AI run: the AI’s answers (choices from fixed lists), time taken, cost and whether the answer was valid. Never images, never the AI’s raw text.</td></tr>
+    <tr><td>Logs</td><td>Workouts (exercise, sets, reps, weight), food (calories and macros, saved meals) and tape measurements you choose to enter. New food and measurement entries are saved only while you agree to health-data use; what you’ve already logged stays until you delete it.</td></tr>
+    <tr><td>Consents</td><td>Which consent you gave or withdrew, its version, and when.</td></tr>
+    <tr><td>Subscription status</td><td>Whether you have an active subscription, written by our server from the purchase service (see <a href="#purchases">Purchases</a>).</td></tr>
+    <tr><td>Daily limit</td><td>The times you asked for a scan, to apply a daily limit.</td></tr>
+    <tr><td>Sign in with Apple</td><td>If you use it: the ID Apple gives us and a token kept only so we can cancel the link with Apple when you delete your account (see <a href="#apple">Sign in with Apple</a>).</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="phone">4. What stays on your phone</h2>
+<p>Your photos, a copy of your quiz answers, your settings, and any log entries made offline (until they’re sent). These are deleted when you delete your account in the app. Deleting the app also deletes them, but it doesn’t delete your account on our server: use <strong>Settings → Delete my account</strong> first.</p>
+
+<h2 id="analytics">5. Usage analytics</h2>
+<p>We use PostHog, hosted in the EU (Frankfurt), to see where people get stuck in the app. It receives only events from a fixed list:</p>
+<ul>
+  <li>which onboarding step you reached or finished (the step’s name, not your answer);</li>
+  <li>consent choices: given, declined or withdrawn;</li>
+  <li>the subscription screen: seen or closed, which of two price groups you were shown, and whether a purchase or restore went through;</li>
+  <li>photo steps: which angle (front, side, back) and whether the photo passed the phone’s checks;</li>
+  <li>the scan’s outcome type (for example “scored” or “not scored”), never the score;</li>
+  <li>which tab you opened.</li>
+</ul>
+<p>It never gets your health answers, scores, ranges, photos, dates or anything you type. Events are linked to your random account ID, not to your name. PostHog’s software adds standard device details such as the phone model, iOS version and app version. Your IP address is discarded.</p>
+<p><strong>Adults:</strong> on unless you turn it off<!-- ANALYTICS_DEFAULT_ON_ADULT = true -->. <strong>Teens (13–17):</strong> off, and we never ask you to turn it on<!-- ANALYTICS_DEFAULT_ON_TEEN = false -->. Nothing is sent before you’ve entered your date of birth. Switch it any time in <strong>Settings → Share usage data</strong>. Deleting your account deletes your analytics record and events too (PostHog can take a few days to finish).</p>
+
+<h2 id="crashes">6. Crash reports</h2>
+<p>We use Sentry to find and fix crashes. A report holds the error type, an error code, where in the code it happened, and the phone model, iOS version and app version. It never holds photos, health answers, error messages, screenshots or your account ID, and we’ve asked Sentry not to store IP addresses. Reports are kept for Sentry’s retention period [to confirm].</p>
+
+<h2 id="purchases">7. Purchases</h2>
+<p>Subscriptions are sold and billed by Apple. We never see your card details or your Apple ID.</p>
+<p>We use RevenueCat to manage subscriptions. It receives your purchase history from Apple (which subscription, renewals, trials, cancellations) linked to your random account ID. It gets no name, email or health data. When you delete your account, we delete your record at RevenueCat. Apple keeps its own purchase records under <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
+
+<h2 id="health">8. Apple Health</h2>
+<p>If you allow it, the app reads your latest weight from Apple Health when you ask it to, and only that. It never writes anything to Apple Health. Data from Apple Health is never used for advertising or sold.</p>
+
+<h2 id="apple">9. Sign in with Apple</h2>
+<p>After you subscribe, you can save your progress with Sign in with Apple, so you can get it back on a new phone. We don’t ask Apple for your name or email address. Apple gives us an ID for you that only this app uses. We also keep a token from Apple, never shown to the app, so we can cancel the link with Apple when you delete your account.</p>
+
+<h2 id="bases">10. Why we’re allowed to use it</h2>
+<p>UK and EU data protection law (the GDPR) needs a legal reason, called a “lawful basis”, for each use. Ours, in plain words:</p>
+<div class="table-scroll"><table>
+  <thead><tr><th scope="col">What we do</th><th scope="col">Lawful basis</th></tr></thead>
+  <tbody>
+    <tr><td>Use your answers, results and logs (health data) to estimate your range and build your plan</td><td><strong>Your explicit consent.</strong> You give it on a separate screen and can withdraw it in Settings.</td></tr>
+    <tr><td>Send your blurred photos to the third-party AI model for scoring</td><td><strong>Your explicit consent</strong>, on its own screen, withdrawable in Settings.</td></tr>
+    <tr><td>Run your account and the subscription you bought, restore purchases, export and delete your data</td><td><strong>Contract:</strong> we need it to give you what you paid for.</td></tr>
+    <tr><td>Usage analytics (adults)</td><td><strong>Legitimate interests:</strong> understanding where the app gets in people’s way. You can turn it off at any time.</td></tr>
+    <tr><td>Crash reports, the daily scan limit, keeping the service secure</td><td><strong>Legitimate interests:</strong> keeping the app working and safe.</td></tr>
+    <tr><td>Keeping records the law asks for</td><td><strong>Legal obligation.</strong></td></tr>
+  </tbody>
+</table></div>
+<p>Withdrawing consent stops the use from then on. It doesn’t make earlier use unlawful. Without both consents the app can’t score a check-in.</p>
+
+<h2 id="where">11. Where your data is processed</h2>
+<ul>
+  <li><strong>Our database and server:</strong> Supabase, in London, UK.</li>
+  <li><strong>Analytics:</strong> PostHog, in Frankfurt, Germany (EU).</li>
+  <li><strong>Crash reports:</strong> Sentry, [region to confirm].</li>
+  <li><strong>The third-party AI model:</strong> [region and transfer safeguard to confirm].</li>
+  <li><strong>Subscriptions:</strong> RevenueCat, [region to confirm]; and Apple.</li>
+  <li><strong>Us:</strong> we run the app from the United Arab Emirates and may look at data from there.</li>
+</ul>
+<p>When data goes to a country without UK or EU “adequacy” status, we rely on the safeguards the law allows, such as the standard contractual clauses in our providers’ terms. Ask us for details at <a href="mailto:[CONTACT EMAIL]">[CONTACT EMAIL]</a>.</p>
+
+<h2 id="retention">12. How long we keep it</h2>
+<ul>
+  <li><strong>Photos:</strong> on your phone until you delete them. Never on our server. The AI provider: up to 30<!-- AI_RETENTION_MAX_DAYS --> days, longer only if flagged for a safety review.</li>
+  <li><strong>Everything on our server:</strong> until you delete it or your account. Quiz answers go sooner if you withdraw your health-data consent.</li>
+  <li><strong>After you delete your account:</strong> it’s removed from our database straight away, and from backups within 30<!-- DELETE_SLA_DAYS --> days. Your analytics record and your RevenueCat record are deleted at the same time.</li>
+  <li><strong>Crash reports:</strong> Sentry’s retention period [to confirm].</li>
+</ul>
+
+<h2 id="rights">13. Your rights</h2>
+<p>Wherever you live, you can:</p>
+<ul>
+  <li><strong>Get a copy of your data:</strong> Settings → Export my data gives you a file with your account, consents, scores, ranges and logs, plus the answers kept on your phone. Your photos export separately, from Settings → Your photos. For anything else we hold, such as the scoring records in section 3, email us.</li>
+  <li><strong>Delete it:</strong> Settings → Delete my account. This doesn’t cancel an App Store subscription; cancel that in the Settings app first (see <a href="support.html#cancel">how</a>).</li>
+  <li><strong>Withdraw consent:</strong> Settings → Privacy, for health data and for AI scoring.</li>
+  <li><strong>Turn off analytics:</strong> Settings → Share usage data.</li>
+  <li><strong>Correct it:</strong> change your answers in the app, or email us.</li>
+  <li><strong>Object to or restrict</strong> how we use it, or <strong>move it</strong> to another service: email us.</li>
+</ul>
+<p>Email <a href="mailto:[CONTACT EMAIL]">[CONTACT EMAIL]</a>. Because we don’t know your name or email, we may ask for your account ID (shown in your data export) to find your data. We reply within one month.</p>
+<p>You can also complain to a data protection regulator: in the UK, the <a href="https://ico.org.uk/make-a-complaint/">Information Commissioner’s Office</a>; in the EU or EEA, the regulator where you live. We’d like the chance to put it right first.</p>
+
+<h2 id="age">14. Age rules and teens</h2>
+<ul>
+  <li>You must be at least 13<!-- MIN_AGE --> to use the app, or at least 16<!-- MIN_AGE_STRICT --> in the EU, Iceland, Liechtenstein and Norway<!-- MIN_AGE_STRICT_REGIONS -->. The app works out your region from your App Store country, or your phone’s region if that isn’t known; if neither is known, the minimum is 16.</li>
+  <li>The age check uses your month and year of birth. Under the minimum age, the app stops before any account is made.</li>
+  <li>13 to 17<!-- MIN_AGE to ADULT_AGE − 1 --> year olds use <strong>teen mode</strong>: analytics off by default and never nudged on; no “your scan is ready” reminders; no share card; the AI is told only “teen”, never a birth date, and follows extra child-safety rules.</li>
+  <li>For everyone: photos must be of yourself, in shorts or gym clothes. The scan refuses nudity.</li>
+  <li>If we learn an account belongs to someone under the minimum age, we delete it. Parents or guardians can contact us at <a href="mailto:[CONTACT EMAIL]">[CONTACT EMAIL]</a>.</li>
+</ul>
+
+<h2 id="security">15. Security</h2>
+<p>Data travels to our server encrypted (HTTPS). Database rules let each account read only its own data, and only our server can write scores and subscription status. On the phone, the photo vault sits behind Face ID and is left out of backups. No system is perfectly secure, but we keep what we hold small: no photos, no names, no email addresses.</p>
+
+<h2 id="website">16. This website</h2>
+<p>This site uses no cookies, analytics or trackers. It’s hosted by GitHub Pages, which may log your IP address for security. The fonts load from Google Fonts, so Google receives your IP address when you open a page.</p>
+
+<h2 id="changes">17. Changes</h2>
+<p>We’ll update the date at the top when this page changes. If a change affects what you agreed to, the app will tell you and ask again before it applies.</p>
+
+<h2 id="contact">18. Contact</h2>
+<p>[SELLER NAME]<br>Email: <a href="mailto:[CONTACT EMAIL]">[CONTACT EMAIL]</a></p>
+</div></main>
+
+<footer class="site"><div class="wrap">
+  <ul>
+    <li><a href="./">Home</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="support.html">Support</a></li>
+  </ul>
+  <p><span class="app"></span> is made by [SELLER NAME]. Not a medical device.</p>
+</div></footer>
+</body>
+</html>

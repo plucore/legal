@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support</title>
+<meta name="description" content="Help, answers to common questions, and how the score and body-fat range are worked out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<!--
+  Numbers on this page come from the app's parameter file. Each is followed by a comment naming
+  the parameter it came from. If the parameter changes, change the number here too.
+-->
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand app" href="./"></a>
+  <nav class="site" aria-label="Pages"><ul>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="support.html" aria-current="page">Support</a></li>
+  </ul></nav>
+</div></header>
+
+<main><div class="wrap">
+<h1>Support</h1>
+<p class="updated">Last updated: 23 October 2026</p>
+
+<h2 id="contact">Get help</h2>
+<p>Email <a href="mailto:[CONTACT EMAIL]">[CONTACT EMAIL]</a>. It helps to say which iPhone and iOS version you have, and what happened. Please don’t send photos of your body.</p>
+<p>For a data request (a copy of your data, or a question about it), add your account ID: it’s in the file from <strong>Settings → Export my data</strong>.</p>
+
+<h2 id="how-scoring-works">How scoring works</h2>
+<p>This is the method behind the physique score and the body-fat range.</p>
+<ol>
+  <li><strong>Photos.</strong> You take a front and a side photo (a back photo is optional). The phone checks them, blurs your face and removes hidden details like location.</li>
+  <li><strong>Choices, not numbers.</strong> A third-party AI model looks at the photos 3<!-- RUNS_PER_CHECKIN --> times. Each time it can only pick from fixed lists: a body-fat band (for example 20–22%) from a set list for your sex, a muscle definition rating from 1 to 7, and a rating from 1 to 7<!-- RATING_SCALE --> for each of seven muscle groups (chest, shoulders, arms, back, core, glutes, legs)<!-- MUSCLE_GROUPS -->, or “not visible”. It can’t make up its own numbers.</li>
+  <li><strong>The middle answer.</strong> For each item we keep the middle (median) answer of the 3<!-- RUNS_PER_CHECKIN --> runs, so one odd answer can’t swing the result.</li>
+  <li><strong>The physique score (0–100)</strong> comes from fixed rules: definition counts for 40%, and the muscle groups for 60%, shared equally between the groups that are visible<!-- SCORE_WEIGHTS -->.</li>
+  <li><strong>The body-fat range</strong> is the chosen band, widened by 1 point on each side when photo quality is “ok” and 2 when it’s “poor”<!-- BF_RANGE_PAD -->.</li>
+  <li><strong>Same photos, same answer.</strong> The server keeps a fingerprint of each photo (never the photo), so scanning the same photos again gives the same result.</li>
+</ol>
+
+<h3 id="why-a-range">Why body fat is a range</h3>
+<p>A photo can’t measure body fat. Light, pose, clothing, the camera and even what you ate that day change how a body looks. So the app shows a range, never a single number, and the range gets wider when the photos are harder to read. It’s an estimate to track direction over weeks, not a medical measurement. <strong>Not a medical device.</strong></p>
+
+<h3 id="verdict">The weekly verdict</h3>
+<p>A new check-in unlocks every 7<!-- SCAN_COOLDOWN_DAYS --> days, with one retake allowed within 24<!-- RETAKE_WINDOW_H --> hours. The verdict compares the middle of your last 3<!-- TREND_WINDOW --> scores with the same measure 4<!-- VERDICT_LOOKBACK_WEEKS --> weeks earlier. A change smaller than 4<!-- CHANGE_MIN_SCORE = SCORE_BAND --> points is treated as normal week-to-week wobble, not progress.</p>
+<ul>
+  <li><strong>On track:</strong> up by at least 4<!-- CHANGE_MIN_SCORE --> points.</li>
+  <li><strong>Too early:</strong> fewer than 3<!-- VERDICT_MIN_CHECKINS --> check-ins so far, or one dip.</li>
+  <li><strong>Off track:</strong> 2<!-- OFF_TRACK_CONSECUTIVE --> dips in a row.</li>
+</ul>
+
+<h2 id="faq">Questions</h2>
+
+<details id="cancel">
+<summary>How do I cancel my subscription?</summary>
+<p>Subscriptions are billed by Apple, so you cancel with Apple: open the iPhone’s <strong>Settings</strong> app, tap your name, then <strong>Subscriptions</strong>, choose the app and tap <strong>Cancel Subscription</strong>. In the app, <strong>Settings → Manage or cancel in the App Store</strong> takes you there.</p>
+<p>Cancel at least 24<!-- STORE_CANCEL_CUTOFF_H --> hours before the period or free trial ends to avoid the next charge. You keep access until the end of the period you’ve paid for. Deleting the app or your account doesn’t cancel it.</p>
+</details>
+
+<details id="restore">
+<summary>How do I restore my purchase?</summary>
+<p>Tap <strong>Restore purchases</strong> on the subscription screen, or in <strong>Settings</strong>. Use the same Apple ID you bought with. If you saved your progress with Sign in with Apple, sign in on the new phone to get your history back too.</p>
+</details>
+
+<details id="refund">
+<summary>Can I get a refund?</summary>
+<p>Refunds are handled by Apple. Ask at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>.</p>
+</details>
+
+<details id="delete">
+<summary>How do I delete my account?</summary>
+<p>In the app: <strong>Settings → Delete my account</strong>. It deletes everything our server holds about you (scores, ranges, logs, consents) straight away, and from backups within 30<!-- DELETE_SLA_DAYS --> days. It also deletes the photos and answers on your phone. It can’t be undone, so export first if you want a copy.</p>
+<p>It doesn’t cancel an App Store subscription: cancel that first (see above).</p>
+</details>
+
+<details id="export">
+<summary>How do I get a copy of my data?</summary>
+<p><strong>Settings → Export my data</strong> makes a file with your account, consents, scores, ranges and logs, plus the answers kept on your phone. Save or send it from the share sheet.</p>
+<p>Your photos export separately: <strong>Settings → Export my photos</strong> (Face ID first).</p>
+</details>
+
+<details id="photos">
+<summary>Why do my photos stay on my phone?</summary>
+<p>Body photos are private, so we built the app not to need them on our server. They’re kept in a vault inside the app, behind Face ID. When you scan, your face is blurred on the phone first, the AI model reads the photos for that one scan, and our server stores none of them. The AI provider may keep them for up to 30<!-- AI_RETENTION_MAX_DAYS --> days, longer only if flagged for a safety review. More in the <a href="privacy.html#photos">privacy policy</a>.</p>
+</details>
+
+<details id="new-phone">
+<summary>I’m getting a new phone. What moves across?</summary>
+<p>If you saved your progress with Sign in with Apple, your scores, plan and logs come back when you sign in. Photos don’t: the vault is left out of iCloud and computer backups to keep them private. Export your photos from the old phone first if you want them.</p>
+</details>
+
+<details id="refused">
+<summary>Why wasn’t my scan scored?</summary>
+<p>The scan refuses photos that show more than one person, aren’t a body photo, or show nudity. Wear shorts or gym clothes, stand alone in good light, and follow the outline on screen.</p>
+</details>
+
+<details id="talk">
+<summary>I’m finding food, training or my body hard right now</summary>
+<p>You don’t have to deal with it alone. In the app, <strong>Settings → Support</strong> lists free, confidential services in the UK and the US. If a life is at risk, call your local emergency number.</p>
+</details>
+
+<p class="muted">Also see the <a href="privacy.html">privacy policy</a> and the <a href="terms.html">terms of use</a>.</p>
+</div></main>
+
+<footer class="site"><div class="wrap">
+  <ul>
+    <li><a href="./">Home</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="support.html">Support</a></li>
+  </ul>
+  <p><span class="app"></span> is made by [SELLER NAME]. Not a medical device.</p>
+</div></footer>
+</body>
+</html>
