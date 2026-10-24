@@ -26,7 +26,7 @@
 
 <main><div class="wrap">
 <h1>Privacy policy</h1>
-<p class="updated">Last updated: 23 October 2026</p>
+<p class="updated">Last updated: 24 October 2026</p>
 
 <p class="lede"><span class="app"></span> (“the app”) estimates a physique score and a body-fat range from two photos, then gives you a weekly plan and check-in. This page explains what it collects, where that goes, how long it’s kept and what you can do about it.</p>
 
@@ -109,11 +109,11 @@
   <li>the scan’s outcome type (for example “scored” or “not scored”), never the score;</li>
   <li>which tab you opened.</li>
 </ul>
-<p>It never gets your health answers, scores, ranges, photos, dates or anything you type. Events are linked to your random account ID, not to your name. PostHog’s software adds standard device details such as the phone model, iOS version and app version. Your IP address is discarded.</p>
-<p><strong>Adults:</strong> on unless you turn it off<!-- ANALYTICS_DEFAULT_ON_ADULT = true -->. <strong>Teens (13–17):</strong> off, and we never ask you to turn it on<!-- ANALYTICS_DEFAULT_ON_TEEN = false -->. Nothing is sent before you’ve entered your date of birth. Switch it any time in <strong>Settings → Share usage data</strong>. Deleting your account deletes your analytics record and events too (PostHog can take a few days to finish).</p>
+<p>It never gets your health answers, scores, ranges, photos, dates or anything you type. Events are linked to your random account ID, not to your name. PostHog’s software adds standard device details such as the phone model, iOS version, app version, language and time zone, and a device ID of its own. Your IP address is discarded.</p>
+<p><strong>Adults:</strong> on unless you turn it off<!-- ANALYTICS_DEFAULT_ON_ADULT = true -->. <strong>Teens (13–17):</strong> off, and we never ask you to turn it on<!-- ANALYTICS_DEFAULT_ON_TEEN = false -->. Nothing is sent before you’ve entered your date of birth and your account exists, and if analytics is off, the app doesn’t start PostHog at all. Switch it any time in <strong>Settings → Share usage data</strong>. Deleting your account deletes your analytics record and events too (PostHog can take a few days to finish).</p>
 
 <h2 id="crashes">6. Crash reports</h2>
-<p>We use Sentry to find and fix crashes. A report holds the error type, an error code, where in the code it happened, and the phone model, iOS version and app version. It never holds photos, health answers, error messages, screenshots or your account ID, and we’ve asked Sentry not to store IP addresses. Reports are kept only as long as needed to fix the problem.</p>
+<p>We use Sentry to find and fix crashes. A report holds the error type, an error code, where in the code it happened, and the phone model, iOS version and app version. It never holds photos, health answers, anything you type, screenshots or your account ID, and we’ve asked Sentry not to store IP addresses. A crash inside iOS or one of the tools the app is built with can include that tool’s own error text. Reports are kept only as long as needed to fix the problem.</p>
 
 <h2 id="purchases">7. Purchases</h2>
 <p>Subscriptions are sold and billed by Apple. We never see your card details or your Apple ID.</p>
@@ -123,7 +123,7 @@
 <p>If you allow it, the app reads your latest weight from Apple Health when you ask it to, and only that. It never writes anything to Apple Health. Data from Apple Health is never used for advertising or sold.</p>
 
 <h2 id="apple">9. Sign in with Apple</h2>
-<p>After you subscribe, you can save your progress with Sign in with Apple, so you can get it back on a new phone. We don’t ask Apple for your name or email address. Apple gives us an ID for you that only this app uses. We also keep a token from Apple, never shown to the app, so we can cancel the link with Apple when you delete your account.</p>
+<p>After you subscribe, you can save your progress with Sign in with Apple, so you can get it back on a new phone. We don’t ask Apple for your name or email address. Apple gives us an ID for you that only this app uses. We also keep a token from Apple, never shown to the app, so we can cancel the link with Apple when you delete your account. If your Apple ID already has an account (on a new phone, say), what this phone’s new account held (check-ins, logs, consents and a subscription bought on it) moves into that account, and the new one is deleted. The answers on this phone are kept, as the newest.</p>
 
 <h2 id="bases">10. Why we’re allowed to use it</h2>
 <p>UK and EU data protection law (the GDPR) needs a legal reason, called a “lawful basis”, for each use. Ours, in plain words:</p>
@@ -161,7 +161,7 @@
 <h2 id="rights">13. Your rights</h2>
 <p>Wherever you live, you can:</p>
 <ul>
-  <li><strong>Get a copy of your data:</strong> Settings → Export my data gives you a file with your account, consents, scores, ranges and logs, plus the answers kept on your phone. Your photos export separately, from Settings → Your photos. For anything else we hold, such as the scoring records in section 3, email us.</li>
+  <li><strong>Get a copy of your data:</strong> Settings → Export my data gives you a file with your account, consents, scores, ranges and logs, plus the answers kept on your phone. Your photos export separately, from Settings → Export my photos. For anything else we hold, such as the scoring records in section 3, email us.</li>
   <li><strong>Delete it:</strong> Settings → Delete my account. This doesn’t cancel an App Store subscription; cancel that in the Settings app first (see <a href="support.html#cancel">how</a>).</li>
   <li><strong>Withdraw consent:</strong> Settings → Privacy, for health data and for AI scoring.</li>
   <li><strong>Turn off analytics:</strong> Settings → Share usage data.</li>
@@ -174,7 +174,7 @@
 <h2 id="age">14. Age rules and teens</h2>
 <ul>
   <li>You must be at least 13<!-- MIN_AGE --> to use the app, or at least 16<!-- MIN_AGE_STRICT --> in the EU, Iceland, Liechtenstein and Norway<!-- MIN_AGE_STRICT_REGIONS -->. The app works out your region from your App Store country, or your phone’s region if that isn’t known; if neither is known, the minimum is 16.</li>
-  <li>The age check uses your month and year of birth. Under the minimum age, the app stops before any account is made.</li>
+  <li>The age check uses your month and year of birth. Under the minimum age, the app stops before any account is made, and keeps showing that screen for 24 hours<!-- AGE_BLOCK_COOLDOWN_H -->. For that, the phone keeps only the time and the minimum age shown, never the date entered.</li>
   <li>13 to 17<!-- MIN_AGE to ADULT_AGE − 1 --> year olds use <strong>teen mode</strong>: analytics off by default and never nudged on; no “your scan is ready” reminders; no share card; the AI is told only “teen”, never a birth date, and follows extra child-safety rules.</li>
   <li>For everyone: photos must be of yourself, in shorts or gym clothes. The scan refuses nudity.</li>
   <li>If we learn an account belongs to someone under the minimum age, we delete it. Parents or guardians can contact us at <a href="mailto:support@plucore.com">support@plucore.com</a>.</li>
